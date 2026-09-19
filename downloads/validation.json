@@ -1,0 +1,16 @@
+{
+  "period": "2002–2025",
+  "source_snapshot": "2026-09-16",
+  "coverage_months": 287,
+  "files_ok": 7775,
+  "files_expected": 7776,
+  "files_failed": 0,
+  "definition": "AIH obstétrica, feminina, 10–49 anos; sem exigir inscrição pré-natal",
+  "denominator": "Todas as AIHs elegíveis, incluindo óbitos; somente sobreviventes no numerador",
+  "time": "Competência de processamento",
+  "standard": "Distribuição etária nacional acumulada de internações nos meses comuns",
+  "source_code_hashes": [
+    "8a88d6ea29eee616032ef20bb55f1ad813158d4f4b47a839af65652edd66528e"
+  ],
+  "validation": "passed"
+}

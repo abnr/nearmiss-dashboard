@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Near miss materno · Dados públicos do SUS</title>
+  <meta name="description" content="Explore marcadores administrativos de near miss materno nas internações obstétricas do SUS, Brasil, 2002–2025.">
+  <link rel="stylesheet" href="style.css"><script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#resultados">Ir para os resultados</a>
+<header><a class="brand" href="https://institutosantosdumont.org.br/"><img src="assets/isd-logo.png" alt="Instituto Santos Dumont" width="230" height="92"></a><span class="project-label">Pesquisa em saúde materna</span><nav aria-label="Navegação principal"><a href="#resultados">Gráficos</a><a href="#metodo">Como ler</a><a href="#dados">Dados</a><a href="downloads/MANUSCRITO.pdf">Artigo ↓</a></nav></header>
+<main>
+  <section class="hero">
+    <p class="eyebrow">DADOS PÚBLICOS DO SUS · 2002–2025</p>
+    <h1>Near miss materno no Brasil</h1>
+    <p class="lead">Explore as internações com marcadores de near miss no país e nas cinco regiões.</p>
+    <p class="notice">Os diagnósticos registrados permitem acompanhar padrões de morbidade materna. Não confirmam, individualmente, os critérios clínicos de near miss.</p>
+  </section>
+  <section id="resultados" aria-labelledby="explore-title">
+    <div class="section-heading"><h2 id="explore-title">Brasil e regiões</h2><span class="pill">Sem exigência de inscrição pré-natal</span></div>
+    <div class="filters">
+      <label>Lista de diagnósticos<select id="criterion"><option value="W">Waterstone-CID</option><option value="M">Mantel-CID</option><option value="OMS">OMS-CID</option></select></label>
+      <label>Período em destaque<select id="year"><option value="pooled">Acumulado · 2002–2025</option></select></label>
+      <label>Indicador nos gráficos<select id="measure"><option value="per_1000">Frequência por 1.000</option><option value="standardized">Frequência padronizada por idade</option><option value="count">Internações com marcadores (n)</option></select></label>
+    </div>
+    <p id="overview-note" class="status" role="status" aria-live="polite">Carregando resultados…</p>
+    <div class="overview-grid" id="overview">
+      <article class="panel overview-panel national"><div class="territory-heading"><h3>Brasil</h3><span>Total nacional</span></div><strong class="territory-value" id="value-0">—</strong><p class="territory-context" id="context-0"></p><div id="trend-0" class="chart"></div></article>
+      <article class="panel overview-panel"><div class="territory-heading"><h3>Norte</h3><span>Região</span></div><strong class="territory-value" id="value-1">—</strong><p class="territory-context" id="context-1"></p><div id="trend-1" class="chart"></div></article>
+      <article class="panel overview-panel"><div class="territory-heading"><h3>Nordeste</h3><span>Região</span></div><strong class="territory-value" id="value-2">—</strong><p class="territory-context" id="context-2"></p><div id="trend-2" class="chart"></div></article>
+      <article class="panel overview-panel"><div class="territory-heading"><h3>Sudeste</h3><span>Região</span></div><strong class="territory-value" id="value-3">—</strong><p class="territory-context" id="context-3"></p><div id="trend-3" class="chart"></div></article>
+      <article class="panel overview-panel"><div class="territory-heading"><h3>Sul</h3><span>Região</span></div><strong class="territory-value" id="value-4">—</strong><p class="territory-context" id="context-4"></p><div id="trend-4" class="chart"></div></article>
+      <article class="panel overview-panel"><div class="territory-heading"><h3>Centro-Oeste</h3><span>Região</span></div><strong class="territory-value" id="value-5">—</strong><p class="territory-context" id="context-5"></p><div id="trend-5" class="chart"></div></article>
+    </div>
+    <p class="caption">Curvas anuais de 2002 a 2025, com a mesma escala nos seis gráficos. Os números em destaque seguem o período selecionado. Anos incompletos aparecem como lacunas; o tempo corresponde ao processamento das internações.</p>
+    <details class="data-table"><summary>Ver a comparação Brasil / regiões em tabela</summary><div id="overview-table" class="table-scroll"></div></details>
+    <article class="panel comparison"><div class="panel-heading"><div><h3>Compare o total nacional e as regiões</h3><p id="comparison-note">Indicador e período selecionados.</p></div></div><div id="regions" class="chart"></div><p class="caption">O Brasil reúne as cinco regiões. Contagens mostram o volume de internações com marcadores; frequências permitem comparar populações de tamanhos diferentes.</p></article>
+    <div class="detail-heading"><div><p class="eyebrow">MAIS DETALHES</p><h2>Explore um território</h2></div><label>Território<select id="region"><option value="0">Brasil</option><option value="1">Norte</option><option value="2">Nordeste</option><option value="3">Sudeste</option><option value="4">Sul</option><option value="5">Centro-Oeste</option></select></label></div>
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+    <div class="cards" aria-live="polite"><article><span>Internações analisadas</span><strong id="admissions">—</strong><small id="period-label">—</small></article><article><span>Internações com marcadores</span><strong id="cases">—</strong><small>Sobrevivência à alta hospitalar</small></article><article class="accent"><span id="rate-label">Frequência por 1.000 internações</span><strong id="rate">—</strong><small id="rate-note">—</small></article></div>
+    <details class="data-table"><summary>Ver a série anual do território selecionado</summary><div id="annual-table" class="table-scroll"></div></details>
+    <div class="chart-grid">
+      <article class="panel"><div class="panel-heading"><span class="number">01</span><div><h3>A idade faz diferença?</h3><p>Frequências brutas por faixa etária · acumulado 2002–2025.</p></div></div><div id="age" class="chart"></div><p class="caption">Grupos quinquenais no território selecionado. O acumulado usa os mesmos meses completos em todo o país.</p></article>
+      <article class="panel"><div class="panel-heading"><span class="number">02</span><div><h3>E se exigíssemos registro pré-natal?</h3><p>Análise de sensibilidade da seleção.</p></div></div><div id="prenatal" class="chart"></div><p class="caption" id="prenatal-note"></p></article>
+    </div>
+    <article class="panel states"><div class="panel-heading"><span class="number">03</span><div><h3>Explore as unidades da federação</h3><p id="state-note">Frequências por 1.000 internações, com cobertura explícita.</p></div></div><label class="state-filter">Ano<select id="state-year"></select></label><div id="state-table" class="table-scroll"></div><p class="caption">Valores de anos incompletos não são apresentados como estimativas anuais. Não use as frequências como classificação da qualidade dos serviços.</p></article>
+  </section>
+  <section id="metodo" class="method">
+    <p class="eyebrow">COMO LER ESTES RESULTADOS</p><h2>O alcance e os limites da informação.</h2>
+    <div class="method-grid"><article><h3>O que é near miss?</h3><p>Uma mulher que quase morreu, mas sobreviveu a uma complicação durante a gestação, o parto ou o puerpério. Aqui, listas de diagnósticos da CID-10 identificam sinais administrativos associados a essas condições.</p></article><article><h3>Quem entra na análise?</h3><p>Autorizações normais de internação hospitalar (AIHs) de pessoas registradas como do sexo feminino, de 10 a 49 anos, com especialidade obstétrica ou diagnóstico obstétrico. O registro de inscrição pré-natal não é obrigatório.</p></article><article><h3>O que significa “por 1.000”?</h3><p>Identificações entre sobreviventes divididas por todas as internações obstétricas elegíveis, inclusive aquelas com óbito, multiplicadas por 1.000. Uma mulher pode ter mais de uma internação. O denominador não é nascidos vivos.</p></article><article><h3>Por que ajustar pela idade?</h3><p>A padronização aplica a mesma distribuição de idade a todos os territórios e anos. Isso ajuda a comparar populações com composições etárias distintas; não elimina diferenças de acesso, registro ou outros fatores.</p></article><article><h3>As listas são equivalentes?</h3><p>Não. Waterstone-CID, Mantel-CID e OMS-CID usam conjuntos diferentes e sobrepostos de diagnósticos. Uma mesma internação pode estar em mais de uma lista. Não some suas contagens.</p></article><article><h3>Qual é a cobertura?</h3><p id="coverage-note">Carregando cobertura…</p><p>O estudo cobre as internações financiadas pelo SUS. Internações exclusivamente privadas e eventos fora da internação não estão representados.</p></article></div>
+    <aside class="rn-note"><h3>Um complemento municipal no Rio Grande do Norte</h3><p>Também investigamos municípios do RN em 2008–2012, inspirados no estudo de Rosendo e Roncalli. Essa reprodução é parcial: usa municípios e indicadores censitários, enquanto o artigo original empregou agrupamentos espaciais. Consulte os coeficientes nas tabelas e a discussão no manuscrito, disponíveis abaixo.</p><a href="https://doi.org/10.1590/1413-81232015211.20802014">Ler o estudo de referência ↗</a></aside>
+  </section>
+  <section id="dados" class="downloads"><p class="eyebrow">USE, VERIFIQUE, COMPARTILHE</p><h2>Dados agregados e método abertos.</h2><p>As tabelas incluem contagens, denominadores e cobertura. Nenhum microdado individual é publicado neste site.</p><div class="download-links"><a href="downloads/annual.csv" download>Série anual · CSV ↓</a><a href="downloads/pooled.csv" download>Acumulado regional · CSV ↓</a><a href="downloads/age.csv" download>Faixas etárias · CSV ↓</a><a href="downloads/bivariate.csv" download>Correlações regionais · CSV ↓</a><a href="downloads/rn_municipal.csv" download>Municípios do RN · CSV ↓</a><a href="downloads/rn_bivariate.csv" download>Correlações no RN · CSV ↓</a><a href="downloads/coverage.csv" download>Cobertura dos arquivos · CSV ↓</a><a href="downloads/codebook.json" download>Listas CID-10 · JSON ↓</a></div><p><a href="downloads/MANUSCRITO.pdf">Manuscrito e discussão científica ↓</a> · <a href="#metodo">Como interpretar os indicadores</a></p></section>
+</main>
+<footer><span>Fonte: Ministério da Saúde / SIH-SUS · IBGE</span><span>Pesquisa de Tainá dos Santos Rêgo e colaboradores · <a href="downloads/validation.json">Proveniência dos resultados</a></span></footer>
+<noscript><p class="notice">Ative JavaScript para usar os gráficos. As tabelas podem ser baixadas pelos links desta página.</p></noscript>
+</body></html>
