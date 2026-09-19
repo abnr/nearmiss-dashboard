@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "period": [
+    2008,
+    2012
+  ],
+  "census_year": 2010,
+  "municipalities": 1794,
+  "files": 1620,
+  "unknown_municipality_admissions": 0,
+  "rn_reconciliation": "exact for 167 municipalities and four counts",
+  "bootstrap_repetitions": 2000,
+  "bootstrap_seed": 20260919,
+  "families": "90 tests per care/minimum, Pearson and Spearman corrected separately",
+  "observed_utc": "2026-09-19T15:59:07.530287+00:00",
+  "script_sha256": "b99eadd048e14c2559002039d94078617a3b070cc84427344bffc572f19e9b77",
+  "protocol_sha256": "789e4de48e3e0600d5b2e2c1ade4d56c26f3e071ee63bd55d753a7f072eb1afa",
+  "inputs_sha256": {
+    "diagnoses.csv.gz": "c94f14a2be516f2058aa40bc43379a4fd4d7e5aa55a70e5758220e42c38859dc",
+    "covariates.csv": "8b84ae76181bccb5ed3f15b7ce0581d85268efe8d1939464984fb6205f05e3ee",
+    "extraction.csv": "409556761a5391bd6044da8ae1fe479e82db1bae24013342cb84378a33b45fba",
+    "deduplication.json": "047a83415970e062946a79d2deee306d3761c333052af8474d55a6d3d388e75c"
+  }
+}

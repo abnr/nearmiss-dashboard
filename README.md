@@ -6,6 +6,8 @@ Endereço de publicação: **https://abnr.github.io/nearmiss-dashboard/**.
 
 O painel mostra o Brasil e as cinco regiões, com contagens, frequências brutas e padronizadas por idade. Inclui perfis etários, análise de sensibilidade ao registro pré-natal, tabela por UF, dados agregados para download e o manuscrito em PDF. As listas CID identificam marcadores administrativos; não confirmam individualmente os critérios clínicos de near miss. O denominador é internações, não nascidos vivos.
 
+A seção **[Análise municipal do Nordeste · 2008–2012](https://abnr.github.io/nearmiss-dashboard/#nordeste)** apresenta os nove estados e o total regional, com 3.913.500 internações e 140.519 identificações da lista de Rosendo. Esse complemento usa residentes de 15–49 anos, internações em qualquer UF e indicadores do Censo 2010; seus resultados são fixos e independentes dos filtros nacionais. O [relatório completo](downloads/ROSENDO_NORDESTE.pdf), as tabelas e as figuras suplementares estão em `downloads/rosendo_ne/`.
+
 ## Publicação no GitHub Pages
 
 A publicação está configurada pela branch `gh-pages`, na raiz. Em **Settings → Pages → Build and deployment**, a origem correspondente é:
@@ -51,11 +53,11 @@ Após uma revisão da análise ou do painel, copie os arquivos de `site/` para e
 git push origin main main:gh-pages
 ```
 
-Esse comando usa atualizações normais, sem forçar sobrescrita do histórico. Se editar arquivos diretamente no GitHub em `main`, sincronize sua cópia local com `git pull --ff-only` antes de executar o comando de publicação. O progresso aparece na aba **Actions**, no fluxo **pages build and deployment**.
+Esse comando usa atualizações normais, sem forçar sobrescrita do histórico. Se editar arquivos diretamente no GitHub em `main`, sincronize sua cópia local com `git pull --ff-only` antes de executar o comando de publicação. O progresso aparece na aba **Actions**, no fluxo **pages build and deployment**. No projeto de análise, `./run.sh export` prepara os PDFs e suplementos locais antes desta cópia; não publica no GitHub. A integração do complemento nordestino ao manuscrito e ao site corresponde ao commit `4e387c1` daquele projeto.
 
 A análise principal inclui 58.376.917 internações em 287 meses comuns às 27 UFs. AP/outubro de 2007 não constava na fonte consultada. Anos incompletos ficam visíveis nas tabelas e como lacunas nas curvas. Os metadados da fonte estão em [downloads/validation.json](downloads/validation.json).
 
-A conferência funcional fica no projeto de análise: `python3 tools/check_site.py`, com Chromium instalado. Verifica os nove gráficos, combinações de filtros, unidades, cobertura, logo, downloads e layouts de computador e celular.
+A conferência funcional fica no projeto de análise: `python3 tools/check_site.py`, com Chromium instalado. Verifica os nove gráficos interativos, combinações de filtros, barras e tabela do Nordeste contra o CSV publicado, unidades, cobertura, logo, downloads e layouts de computador e celular.
 
 ## Identidade visual e fontes
 

@@ -1,0 +1,272 @@
+[
+  {
+    "indicator": "income_pc",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/3578/periodos/2010/variaveis/2012?localidades=N6%5BN3%5B21%5D%5D&classificacao=1%5B6795%5D%7C386%5B9680%5D",
+    "table": 3578,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:31.879439+00:00",
+    "sha256": "0f21340ed9f9f96e62d07f0a6b555d8ce7c8352f7c079c15f4c19a3fec7176bc",
+    "metadata_sha256": "9ffca09bff309a5db27ea2796121bb560722e3e7ddbc0c6dcd574aa89e1ee4d3"
+  },
+  {
+    "indicator": "income_pc",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/3578/periodos/2010/variaveis/2012?localidades=N6%5BN3%5B22%5D%5D&classificacao=1%5B6795%5D%7C386%5B9680%5D",
+    "table": 3578,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:32.139399+00:00",
+    "sha256": "1a425a4ebe9f42a5f04986759dc573e73a2cc41c24565e4a53c8486891f7fe7c",
+    "metadata_sha256": "9ffca09bff309a5db27ea2796121bb560722e3e7ddbc0c6dcd574aa89e1ee4d3"
+  },
+  {
+    "indicator": "income_pc",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/3578/periodos/2010/variaveis/2012?localidades=N6%5BN3%5B23%5D%5D&classificacao=1%5B6795%5D%7C386%5B9680%5D",
+    "table": 3578,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:32.393267+00:00",
+    "sha256": "f0901528d7b8330f878c214344bbb3972d4b42c882b807f0accf8fd8116b2b22",
+    "metadata_sha256": "9ffca09bff309a5db27ea2796121bb560722e3e7ddbc0c6dcd574aa89e1ee4d3"
+  },
+  {
+    "indicator": "income_pc",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/3578/periodos/2010/variaveis/2012?localidades=N6%5BN3%5B24%5D%5D&classificacao=1%5B6795%5D%7C386%5B9680%5D",
+    "table": 3578,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:32.645571+00:00",
+    "sha256": "b8fd651bba1814f7cd00642760f15e331dbd80ed61c597a0065fbb07bbfdc368",
+    "metadata_sha256": "9ffca09bff309a5db27ea2796121bb560722e3e7ddbc0c6dcd574aa89e1ee4d3"
+  },
+  {
+    "indicator": "income_pc",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/3578/periodos/2010/variaveis/2012?localidades=N6%5BN3%5B25%5D%5D&classificacao=1%5B6795%5D%7C386%5B9680%5D",
+    "table": 3578,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:32.838240+00:00",
+    "sha256": "8e7ec229cefe93f1acf84b5f294674deb318cb9ea18cfd5de47236148b710e7a",
+    "metadata_sha256": "9ffca09bff309a5db27ea2796121bb560722e3e7ddbc0c6dcd574aa89e1ee4d3"
+  },
+  {
+    "indicator": "income_pc",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/3578/periodos/2010/variaveis/2012?localidades=N6%5BN3%5B26%5D%5D&classificacao=1%5B6795%5D%7C386%5B9680%5D",
+    "table": 3578,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:33.218567+00:00",
+    "sha256": "a218ec44de9d54a7f8bfe5748f54dd760a4ea7a06fee22890e413715892a6049",
+    "metadata_sha256": "9ffca09bff309a5db27ea2796121bb560722e3e7ddbc0c6dcd574aa89e1ee4d3"
+  },
+  {
+    "indicator": "income_pc",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/3578/periodos/2010/variaveis/2012?localidades=N6%5BN3%5B27%5D%5D&classificacao=1%5B6795%5D%7C386%5B9680%5D",
+    "table": 3578,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:33.379598+00:00",
+    "sha256": "c4177c414a084a72fdf284c3a53660796a1ed65544e0a40ff625a9d1d189753e",
+    "metadata_sha256": "9ffca09bff309a5db27ea2796121bb560722e3e7ddbc0c6dcd574aa89e1ee4d3"
+  },
+  {
+    "indicator": "income_pc",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/3578/periodos/2010/variaveis/2012?localidades=N6%5BN3%5B28%5D%5D&classificacao=1%5B6795%5D%7C386%5B9680%5D",
+    "table": 3578,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:33.709301+00:00",
+    "sha256": "782a04b35c2575848561bd9bee1eafdeb6b8ee0674eb4bc1913f1b51f5dff95f",
+    "metadata_sha256": "9ffca09bff309a5db27ea2796121bb560722e3e7ddbc0c6dcd574aa89e1ee4d3"
+  },
+  {
+    "indicator": "income_pc",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/3578/periodos/2010/variaveis/2012?localidades=N6%5BN3%5B29%5D%5D&classificacao=1%5B6795%5D%7C386%5B9680%5D",
+    "table": 3578,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:34.033409+00:00",
+    "sha256": "ddbb34effedd6fc14dffb3dcbd697c4637571cd74a896a7dc59dc8c20a4062a7",
+    "metadata_sha256": "9ffca09bff309a5db27ea2796121bb560722e3e7ddbc0c6dcd574aa89e1ee4d3"
+  },
+  {
+    "indicator": "illiteracy_10plus",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1383/periodos/2010/variaveis/1646?localidades=N6%5BN3%5B21%5D%5D&classificacao=2%5B6794%5D",
+    "table": 1383,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:34.659098+00:00",
+    "sha256": "55240c8bbfd9e64127c4c34b164f39863ed3633a469e8b20ffa0cc609aa97013",
+    "metadata_sha256": "221f6e36447c71a3cdb4ca7e0b59cd46231c033adb9c65f0eb8ba476bb9cb01b"
+  },
+  {
+    "indicator": "illiteracy_10plus",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1383/periodos/2010/variaveis/1646?localidades=N6%5BN3%5B22%5D%5D&classificacao=2%5B6794%5D",
+    "table": 1383,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:35.171353+00:00",
+    "sha256": "1c27a180c8fd4c31a2146252f95e0557fa188039820276625fb41a1ed637ed8c",
+    "metadata_sha256": "221f6e36447c71a3cdb4ca7e0b59cd46231c033adb9c65f0eb8ba476bb9cb01b"
+  },
+  {
+    "indicator": "illiteracy_10plus",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1383/periodos/2010/variaveis/1646?localidades=N6%5BN3%5B23%5D%5D&classificacao=2%5B6794%5D",
+    "table": 1383,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:35.973327+00:00",
+    "sha256": "a7dfb21bb56203eb15f8d4555a59db793e25ae87d2d43641363d9bd0f7435fdb",
+    "metadata_sha256": "221f6e36447c71a3cdb4ca7e0b59cd46231c033adb9c65f0eb8ba476bb9cb01b"
+  },
+  {
+    "indicator": "illiteracy_10plus",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1383/periodos/2010/variaveis/1646?localidades=N6%5BN3%5B24%5D%5D&classificacao=2%5B6794%5D",
+    "table": 1383,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:36.114353+00:00",
+    "sha256": "3610f589dbf6cab96fd373939f4c6dfd1663a5924923894e66d11727bb569174",
+    "metadata_sha256": "221f6e36447c71a3cdb4ca7e0b59cd46231c033adb9c65f0eb8ba476bb9cb01b"
+  },
+  {
+    "indicator": "illiteracy_10plus",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1383/periodos/2010/variaveis/1646?localidades=N6%5BN3%5B25%5D%5D&classificacao=2%5B6794%5D",
+    "table": 1383,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:36.674510+00:00",
+    "sha256": "6dfba1e5a1f72a43e24c407294bee9442c6b9b5c1521ccf61109e7df5f4c802f",
+    "metadata_sha256": "221f6e36447c71a3cdb4ca7e0b59cd46231c033adb9c65f0eb8ba476bb9cb01b"
+  },
+  {
+    "indicator": "illiteracy_10plus",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1383/periodos/2010/variaveis/1646?localidades=N6%5BN3%5B26%5D%5D&classificacao=2%5B6794%5D",
+    "table": 1383,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:37.315849+00:00",
+    "sha256": "d78b01b7c1b857abe2d02d09e14cfa03c65ef3a54913131644b38ade7c7e9aae",
+    "metadata_sha256": "221f6e36447c71a3cdb4ca7e0b59cd46231c033adb9c65f0eb8ba476bb9cb01b"
+  },
+  {
+    "indicator": "illiteracy_10plus",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1383/periodos/2010/variaveis/1646?localidades=N6%5BN3%5B27%5D%5D&classificacao=2%5B6794%5D",
+    "table": 1383,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:37.803549+00:00",
+    "sha256": "9a5648b97808b6b7ab7bcbbfceaca32e2effc15f38f39ccae1f3da190a2d1754",
+    "metadata_sha256": "221f6e36447c71a3cdb4ca7e0b59cd46231c033adb9c65f0eb8ba476bb9cb01b"
+  },
+  {
+    "indicator": "illiteracy_10plus",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1383/periodos/2010/variaveis/1646?localidades=N6%5BN3%5B28%5D%5D&classificacao=2%5B6794%5D",
+    "table": 1383,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:38.109453+00:00",
+    "sha256": "e40c7ffdde7fc8099618a0425159f40994f88f320be235f8b75e6643a79d7805",
+    "metadata_sha256": "221f6e36447c71a3cdb4ca7e0b59cd46231c033adb9c65f0eb8ba476bb9cb01b"
+  },
+  {
+    "indicator": "illiteracy_10plus",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1383/periodos/2010/variaveis/1646?localidades=N6%5BN3%5B29%5D%5D&classificacao=2%5B6794%5D",
+    "table": 1383,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:38.222860+00:00",
+    "sha256": "b37562557f0903f51a49f161ce468ac84c7d1df6d031224f8050f76824792ade",
+    "metadata_sha256": "221f6e36447c71a3cdb4ca7e0b59cd46231c033adb9c65f0eb8ba476bb9cb01b"
+  },
+  {
+    "indicator": "sewer_septic",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1394/periodos/2010/variaveis/96?localidades=N6%5BN3%5B21%5D%5D&classificacao=1%5B0%5D%7C458%5B0%5D%7C125%5B0%5D%7C63%5B0%5D%7C11558%5B0%2C92855%2C92856%5D",
+    "table": 1394,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:39.495912+00:00",
+    "sha256": "77851d6fee9a7e3605b8701d5acef7162fa6aea0419446986c25766e200aff54",
+    "metadata_sha256": "2548787490119d7d585b3ddfffefafa383cde6683962a74b086759597b159527"
+  },
+  {
+    "indicator": "sewer_septic",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1394/periodos/2010/variaveis/96?localidades=N6%5BN3%5B22%5D%5D&classificacao=1%5B0%5D%7C458%5B0%5D%7C125%5B0%5D%7C63%5B0%5D%7C11558%5B0%2C92855%2C92856%5D",
+    "table": 1394,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:40.318515+00:00",
+    "sha256": "265ee1341a9a463a3868f70fe9054f14d8e0d1a9758de14054ac4ef90c092451",
+    "metadata_sha256": "2548787490119d7d585b3ddfffefafa383cde6683962a74b086759597b159527"
+  },
+  {
+    "indicator": "sewer_septic",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1394/periodos/2010/variaveis/96?localidades=N6%5BN3%5B23%5D%5D&classificacao=1%5B0%5D%7C458%5B0%5D%7C125%5B0%5D%7C63%5B0%5D%7C11558%5B0%2C92855%2C92856%5D",
+    "table": 1394,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:41.144262+00:00",
+    "sha256": "e0d64c432ab16fb56f88586be28a8e98e9d2568e97709ee1a3cd6de79f2d3f81",
+    "metadata_sha256": "2548787490119d7d585b3ddfffefafa383cde6683962a74b086759597b159527"
+  },
+  {
+    "indicator": "sewer_septic",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1394/periodos/2010/variaveis/96?localidades=N6%5BN3%5B24%5D%5D&classificacao=1%5B0%5D%7C458%5B0%5D%7C125%5B0%5D%7C63%5B0%5D%7C11558%5B0%2C92855%2C92856%5D",
+    "table": 1394,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:41.956385+00:00",
+    "sha256": "73d3606b8c6c21ea4ab4a90fe0a997ea66f41b3c2b4d21dee21e029295ca4fa8",
+    "metadata_sha256": "2548787490119d7d585b3ddfffefafa383cde6683962a74b086759597b159527"
+  },
+  {
+    "indicator": "sewer_septic",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1394/periodos/2010/variaveis/96?localidades=N6%5BN3%5B25%5D%5D&classificacao=1%5B0%5D%7C458%5B0%5D%7C125%5B0%5D%7C63%5B0%5D%7C11558%5B0%2C92855%2C92856%5D",
+    "table": 1394,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:42.764271+00:00",
+    "sha256": "e010cf1b93d4320f0dbf86773fafd21c5ed6e800a268d5ac69d8237828bfc8da",
+    "metadata_sha256": "2548787490119d7d585b3ddfffefafa383cde6683962a74b086759597b159527"
+  },
+  {
+    "indicator": "sewer_septic",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1394/periodos/2010/variaveis/96?localidades=N6%5BN3%5B26%5D%5D&classificacao=1%5B0%5D%7C458%5B0%5D%7C125%5B0%5D%7C63%5B0%5D%7C11558%5B0%2C92855%2C92856%5D",
+    "table": 1394,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:43.593855+00:00",
+    "sha256": "0cc201ec0edb1ac3ba6adc116046fa8151ff178ffcb80bde4fa0e27f69c26653",
+    "metadata_sha256": "2548787490119d7d585b3ddfffefafa383cde6683962a74b086759597b159527"
+  },
+  {
+    "indicator": "sewer_septic",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1394/periodos/2010/variaveis/96?localidades=N6%5BN3%5B27%5D%5D&classificacao=1%5B0%5D%7C458%5B0%5D%7C125%5B0%5D%7C63%5B0%5D%7C11558%5B0%2C92855%2C92856%5D",
+    "table": 1394,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:44.179201+00:00",
+    "sha256": "ea4a4c99bff966f6ae802eefd0130e852ab8d97ee97ab3832bed2ffbfd00cdaa",
+    "metadata_sha256": "2548787490119d7d585b3ddfffefafa383cde6683962a74b086759597b159527"
+  },
+  {
+    "indicator": "sewer_septic",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1394/periodos/2010/variaveis/96?localidades=N6%5BN3%5B28%5D%5D&classificacao=1%5B0%5D%7C458%5B0%5D%7C125%5B0%5D%7C63%5B0%5D%7C11558%5B0%2C92855%2C92856%5D",
+    "table": 1394,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:44.501087+00:00",
+    "sha256": "8bf5e7463b0157f241fd049ab3f6878e2e418023233584546e5dfd41eb33432c",
+    "metadata_sha256": "2548787490119d7d585b3ddfffefafa383cde6683962a74b086759597b159527"
+  },
+  {
+    "indicator": "sewer_septic",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1394/periodos/2010/variaveis/96?localidades=N6%5BN3%5B29%5D%5D&classificacao=1%5B0%5D%7C458%5B0%5D%7C125%5B0%5D%7C63%5B0%5D%7C11558%5B0%2C92855%2C92856%5D",
+    "table": 1394,
+    "year": 2010,
+    "cached": false,
+    "observed_utc": "2026-09-19T15:13:45.900425+00:00",
+    "sha256": "fa29da30bbf156c7a9a93a31390432a455389b45fc6e2d453a7dabfa0c44ffc9",
+    "metadata_sha256": "2548787490119d7d585b3ddfffefafa383cde6683962a74b086759597b159527"
+  }
+]
