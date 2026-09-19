@@ -6,7 +6,11 @@ Endereço de publicação: **https://abnr.github.io/nearmiss-dashboard/**.
 
 O painel mostra o Brasil e as cinco regiões, com contagens, frequências brutas e padronizadas por idade. Inclui perfis etários, análise de sensibilidade ao registro pré-natal, tabela por UF, dados agregados para download e o manuscrito em PDF. As listas CID identificam marcadores administrativos; não confirmam individualmente os critérios clínicos de near miss. O denominador é internações, não nascidos vivos.
 
-A seção **[Análise municipal do Nordeste · 2008–2012](https://abnr.github.io/nearmiss-dashboard/#nordeste)** apresenta os nove estados e o total regional, com 3.913.500 internações e 140.519 identificações da lista de Rosendo. Esse complemento usa residentes de 15–49 anos, internações em qualquer UF e indicadores do Censo 2010; seus resultados são fixos e independentes dos filtros nacionais. O [relatório completo](downloads/ROSENDO_NORDESTE.pdf), as tabelas e as figuras suplementares estão em `downloads/rosendo_ne/`.
+A seção **[Análise municipal do Nordeste · 2008–2012](https://abnr.github.io/nearmiss-dashboard/#nordeste)** apresenta mapa interativo do IBGE, barras ordenadas e composição diagnóstica dos nove estados e do total regional, com 3.913.500 internações e 140.519 identificações da lista de Rosendo. Esse complemento usa residentes de 15–49 anos, internações em qualquer UF e indicadores do Censo 2010; seus resultados são fixos e independentes dos filtros nacionais. O [relatório completo](downloads/ROSENDO_NORDESTE.pdf), as tabelas e as figuras suplementares estão em `downloads/rosendo_ne/`.
+
+A abertura explica o objetivo e resume as três abordagens em números por 1.000 internações. A seção **Para quem vai divulgar** oferece uma apresentação curta da pesquisa. No Nordeste, o seletor permite comparar todos os sinais, hipertensão ou hemorragias no mapa e nas barras. O atalho temporal leva à série nacional de 2002–2025, mantendo explícitas as diferenças entre os desenhos. Essa revisão da interface corresponde ao commit `275026b` do projeto de análise.
+
+O mapa usa uma cópia local da [malha simplificada do IBGE](https://servicodados.ibge.gov.br/api/v3/malhas/regioes/2?intrarregiao=UF&qualidade=minima&formato=image%2Fsvg%2Bxml), obtida em 19/09/2026. As cores e as barras são calculadas a partir do CSV agregado. Não há consulta externa durante a navegação.
 
 ## Publicação no GitHub Pages
 
@@ -37,7 +41,7 @@ Abra `http://localhost:8000`. Um servidor HTTP permite carregar o JSON dos gráf
 | `index.html` | Página e textos do painel |
 | `style.css`, `app.js` | Estilo, filtros, gráficos e tabelas |
 | `data.json` | Dados agregados usados nos gráficos |
-| `assets/` | Logo do Instituto Santos Dumont |
+| `assets/` | Logo do Instituto Santos Dumont e malha simplificada do IBGE |
 | `downloads/` | Tabelas CSV, listas CID, proveniência e manuscrito PDF |
 | `.nojekyll` | Publicação direta dos arquivos estáticos |
 
@@ -57,7 +61,7 @@ Esse comando usa atualizações normais, sem forçar sobrescrita do histórico. 
 
 A análise principal inclui 58.376.917 internações em 287 meses comuns às 27 UFs. AP/outubro de 2007 não constava na fonte consultada. Anos incompletos ficam visíveis nas tabelas e como lacunas nas curvas. Os metadados da fonte estão em [downloads/validation.json](downloads/validation.json).
 
-A conferência funcional fica no projeto de análise: `python3 tools/check_site.py`, com Chromium instalado. Verifica os nove gráficos interativos, combinações de filtros, barras e tabela do Nordeste contra o CSV publicado, unidades, cobertura, logo, downloads e layouts de computador e celular.
+A conferência funcional fica no projeto de análise: `python3 tools/check_site.py`, com Chromium instalado. Verifica os nove gráficos interativos, combinações de filtros, mapa, três grupos de sinais, ordenação das barras e composição do Nordeste contra o CSV publicado, unidades, cobertura, logo, downloads e layouts de computador e celular.
 
 ## Identidade visual e fontes
 
