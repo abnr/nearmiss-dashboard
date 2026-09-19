@@ -102,8 +102,9 @@ function render() {
   table('annual-table', ['Ano', 'Meses', 'Internações', 'Identificações', 'Bruta / 1.000', 'Padronizada / 1.000'], annual.map(r => [r.year, r.n_months, number(r.admissions), number(r[criterion]), number(r[criterion + '_per_1000'], 2), number(r[criterion + '_standardized'], 2)]), `${regionNames[region]} · ${names[criterion]}. Valores de anos incompletos se referem somente aos meses disponíveis.`);
   const ages = data.ages.filter(r => r.region_code === region).sort((a, b) => a.age_group - b.age_group);
   lineChart('age', ages.map(r => ({label: `${r.age_group}–${r.age_group + 4}`, value: r.admissions ? 1000 * r[criterion] / r.admissions : null})), `Frequência por faixa etária de ${names[criterion]} em ${regionNames[region]}`, {color: '#b65d15'});
-  bars('prenatal', [{label: 'Todas as elegíveis', value: selected[criterion + '_per_1000']}, {label: 'Com registro', value: selected[criterion + '_pn_per_1000'], color: '#da8032'}], 'Sensibilidade à exigência de inscrição pré-natal');
-  $('prenatal-note').textContent = `Frequências brutas no período selecionado. ${number(selected.pn_percent, 1)}% das internações tinham inscrição pré-natal não zero. Preenchimento do campo não mede a realização nem a qualidade do pré-natal.`;
+  $('prenatal-sample').textContent = `${regionNames[region]} · ${period} · ${selected.n_months} meses. Sem exigir registro: ${number(selected.admissions)} internações. Exigindo registro: ${number(selected.pn_admissions)} (${number(selected.pn_percent, 1)}% da amostra).`;
+  bars('prenatal', [{label: 'Sem exigir registro', value: selected[criterion + '_per_1000']}, {label: 'Exigindo registro', value: selected[criterion + '_pn_per_1000'], color: '#da8032'}], 'Comparação com e sem exigência de inscrição pré-natal');
+  $('prenatal-note').textContent = `${names[criterion]} · frequências brutas por 1.000 internações de cada grupo. O grupo sem exigência inclui internações com e sem inscrição pré-natal registrada.`;
   $('state-note').textContent = `Frequências ${measure === 'standardized' ? 'padronizadas por idade' : 'brutas'} por 1.000 internações, com cobertura explícita.`;
   const stateYear = Number($('state-year').value);
   const states = data.annual.filter(r => r.region_code === null && r.year === stateYear).sort((a, b) => a.territory.localeCompare(b.territory));

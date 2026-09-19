@@ -17,7 +17,7 @@
     <p class="notice">Os diagnósticos registrados permitem acompanhar padrões de morbidade materna. Não confirmam, individualmente, os critérios clínicos de near miss.</p>
   </section>
   <section id="resultados" aria-labelledby="explore-title">
-    <div class="section-heading"><h2 id="explore-title">Brasil e regiões</h2><span class="pill">Sem exigência de inscrição pré-natal</span></div>
+    <h2 id="explore-title">Brasil e regiões</h2>
     <div class="filters">
       <label>Lista de diagnósticos<select id="criterion"><option value="W">Waterstone-CID</option><option value="M">Mantel-CID</option><option value="OMS">OMS-CID</option></select></label>
       <label>Período em destaque<select id="year"><option value="pooled">Acumulado · 2002–2025</option></select></label>
@@ -41,7 +41,7 @@
     <details class="data-table"><summary>Ver a série anual do território selecionado</summary><div id="annual-table" class="table-scroll"></div></details>
     <div class="chart-grid">
       <article class="panel"><div class="panel-heading"><span class="number">01</span><div><h3>A idade faz diferença?</h3><p>Frequências brutas por faixa etária · acumulado 2002–2025.</p></div></div><div id="age" class="chart"></div><p class="caption">Grupos quinquenais no território selecionado. O acumulado usa os mesmos meses completos em todo o país.</p></article>
-      <article class="panel"><div class="panel-heading"><span class="number">02</span><div><h3>E se exigíssemos registro pré-natal?</h3><p>Análise de sensibilidade da seleção.</p></div></div><div id="prenatal" class="chart"></div><p class="caption" id="prenatal-note"></p></article>
+      <article class="panel"><div class="panel-heading"><span class="number">02</span><div><h3>E se exigíssemos registro pré-natal?</h3><p>Como essa exigência muda a amostra?</p></div></div><p class="caption">O SIH-SUS tem um campo para inscrição pré-natal, mas ele nem sempre está preenchido. A ausência dessa informação não permite concluir que a mulher não fez pré-natal.</p><p class="caption" id="prenatal-sample" aria-live="polite"></p><div id="prenatal" class="chart"></div><p class="caption" id="prenatal-note"></p></article>
     </div>
     <article class="panel states"><div class="panel-heading"><span class="number">03</span><div><h3>Explore as unidades da federação</h3><p id="state-note">Frequências por 1.000 internações, com cobertura explícita.</p></div></div><label class="state-filter">Ano<select id="state-year"></select></label><div id="state-table" class="table-scroll"></div><p class="caption">Valores de anos incompletos não são apresentados como estimativas anuais. Não use as frequências como classificação da qualidade dos serviços.</p></article>
   </section>
