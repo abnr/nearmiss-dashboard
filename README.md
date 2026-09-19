@@ -6,15 +6,15 @@ Endereço de publicação: **https://abnr.github.io/nearmiss-dashboard/**.
 
 O painel mostra o Brasil e as cinco regiões, com contagens, frequências brutas e padronizadas por idade. Inclui perfis etários, análise de sensibilidade ao registro pré-natal, tabela por UF, dados agregados para download e o manuscrito em PDF. As listas CID identificam marcadores administrativos; não confirmam individualmente os critérios clínicos de near miss. O denominador é internações, não nascidos vivos.
 
-## Publicar no GitHub Pages
+## Publicação no GitHub Pages
 
-Em **Settings → Pages → Build and deployment**, selecione:
+A publicação está configurada pela branch `gh-pages`, na raiz. Em **Settings → Pages → Build and deployment**, a origem correspondente é:
 
 - **Source:** Deploy from a branch
-- **Branch:** main
+- **Branch:** gh-pages
 - **Folder:** /(root)
 
-Clique em **Save**. O GitHub exibirá o endereço após a publicação. As próximas alterações enviadas à branch `main` serão publicadas automaticamente. O arquivo `.nojekyll` está incluído; não é necessário instalar bibliotecas, configurar um build ou executar Python no GitHub.
+O GitHub publica alterações enviadas a `gh-pages`. A branch `main` mantém os mesmos arquivos de trabalho; o comando abaixo envia a revisão para as duas branches. O arquivo `.nojekyll` está incluído; não é necessário instalar bibliotecas, configurar um build ou executar Python no GitHub.
 
 [Configurações de Pages deste repositório](https://github.com/abnr/nearmiss-dashboard/settings/pages) · [Documentação do GitHub](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
@@ -45,7 +45,13 @@ Não há serviço externo de gráficos, rastreamento, backend ou microdados indi
 
 Os arquivos de publicação são mantidos em `site/` no [projeto de análise](https://github.com/abnr/nearmiss). A versão inicial deste dashboard corresponde ao commit `793d903a0f3bb63eb07f26af495a8437adbaeb33` daquele projeto.
 
-Após uma revisão da análise ou do painel, copie os arquivos de `site/` para esta raiz, preservando este README de publicação. Atualize juntos `data.json`, as tabelas em `downloads/` e o PDF quando houver mudança dos resultados. Depois faça commit e push para `main`.
+Após uma revisão da análise ou do painel, copie os arquivos de `site/` para esta raiz, preservando este README de publicação. Atualize juntos `data.json`, as tabelas em `downloads/` e o PDF quando houver mudança dos resultados. Depois faça commit na branch `main` e publique essa revisão nas duas branches:
+
+```bash
+git push origin main main:gh-pages
+```
+
+Esse comando usa atualizações normais, sem forçar sobrescrita do histórico. Se editar arquivos diretamente no GitHub em `main`, sincronize sua cópia local com `git pull --ff-only` antes de executar o comando de publicação. O progresso aparece na aba **Actions**, no fluxo **pages build and deployment**.
 
 A análise principal inclui 58.376.917 internações em 287 meses comuns às 27 UFs. AP/outubro de 2007 não constava na fonte consultada. Anos incompletos ficam visíveis nas tabelas e como lacunas nas curvas. Os metadados da fonte estão em [downloads/validation.json](downloads/validation.json).
 
