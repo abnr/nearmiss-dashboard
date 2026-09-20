@@ -12,6 +12,8 @@ As associações municipais usam 2008–2012 com Censo 2010 e 2020–2024 com Ce
 
 A extensão até 2025 e a comparação entre censos correspondem ao commit `0ac215b` do projeto de análise.
 
+O quadro de [contexto social](https://abnr.github.io/nearmiss-dashboard/#ne-social) destaca os contrastes de saneamento em Alagoas/Piauí e de renda entre estados, com coeficientes e intervalos em tabela expansível. A explicação das [correlações regionais](https://abnr.github.io/nearmiss-dashboard/#correlacoes-regionais) distingue valores anuais e mudanças anuais: nenhuma correlação das mudanças teve q<0,05 após ajuste para múltiplos testes. Os p-valores, intervalos e q-valores estão em `downloads/bivariate.csv`.
+
 A abertura explica o objetivo e resume as três abordagens por 1.000 internações. A seção **Para quem vai divulgar** oferece uma apresentação curta e identifica os períodos de cada análise. As curvas do Nordeste mostram a faixa 2020–2021, sem atribuir um efeito causal à pandemia.
 
 O mapa usa uma cópia local da [malha simplificada do IBGE](https://servicodados.ibge.gov.br/api/v3/malhas/regioes/2?intrarregiao=UF&qualidade=minima&formato=image%2Fsvg%2Bxml), obtida em 19/09/2026. As cores e as barras são calculadas a partir do CSV agregado. Não há consulta externa durante a navegação.
