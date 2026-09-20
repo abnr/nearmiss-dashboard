@@ -1,0 +1,28 @@
+{
+  "municipalities_2010": 1794,
+  "municipalities_2022": 1794,
+  "identical_code_sets": true,
+  "code_mapping": "IBGE seven digits; SIH first six digits; one-to-one",
+  "microregions": 188,
+  "boundary_invariance": false,
+  "design": "Separate census-aligned cross-sections; no within-municipality longitudinal differences",
+  "boundary_limitation": "Municipal boundary changes documented by IBGE; SIH has no geocoded address for polygon reassignment",
+  "boundary_sources": [
+    "https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/14635-asi-mapas-municipais-estatisticos-em-2013-166-limites-municipais-ou-distritais-foram-alterados",
+    "https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/10117-ibge-disponibiliza-mapas-municipais-para-fins-estatisticos-das-estimativas-populacionais-2014"
+  ],
+  "income_2022": "Preliminary sample results; nominal 2022 BRL",
+  "literacy_2010": "Non-literate persons / all persons age 15+; undeclared status reported separately, not classified as non-literate",
+  "missing_by_census": {
+    "2010": {
+      "income_pc": 0,
+      "illiteracy_15plus": 0,
+      "sewer_septic": 0
+    },
+    "2022": {
+      "income_pc": 0,
+      "illiteracy_15plus": 0,
+      "sewer_septic": 0
+    }
+  }
+}

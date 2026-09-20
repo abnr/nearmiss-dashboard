@@ -1,5 +1,7 @@
 # Extensão municipal inspirada em Rosendo: Nordeste, 2008–2012
 
+Este arquivo preserva o protocolo histórico de 2008–2012. A emenda ao final estende a série até 2025 e registra as comparações entre censos, motivadas em parte pelos achados históricos.
+
 Protocolo de 19/09/2026, registrado antes da nova extração e das correlações. Complementa o artigo nacional de 2002–2025. Nenhum resultado desta extensão foi usado para escolher estados, períodos ou testes.
 
 ## Pergunta e escopo
@@ -42,3 +44,37 @@ Esta é uma extensão parcial do desenho: municípios, indicadores censitários 
 ## Verificação descritiva adicional em 19/09/2026
 
 Após a análise principal, observou-se variação na participação dos marcadores hemorrágicos entre UFs. Será tabulada a composição dos três desfechos por diagnóstico principal para todos os nove estados e para o Nordeste, usando a mesma população. Esta verificação exploratória busca descrever quais códigos compõem as frequências; não altera a lista, não remove municípios/casos e não acrescenta testes de hipótese. Foi registrada antes dessa tabulação adicional.
+
+## Emenda de 19/09/2026: série até 2025 e comparação entre censos
+
+Emenda autorizada após a discussão dos resultados de 2008–2012 e registrada antes da extração de 2013–2025 e dos novos cálculos. A concentração histórica de códigos hemorrágicos em SE/PI motivou parte das perguntas; essas perguntas não são hipóteses formuladas antes de conhecer os dados históricos. O protocolo e os resultados históricos acima permanecem documentados.
+
+### Série descritiva
+
+Estender a mesma população, lista, unidade de análise e resolução de versões para 2008–2025, sem meses de 2026. Ler os 5.832 arquivos das 27 UFs × 216 meses, exigir cobertura completa e registrar erros individualmente. Identificar residentes de todos os nove estados internadas em qualquer UF. Produzir contagens e frequências anuais estaduais e regionais dos três desfechos, composição diagnóstica anual e distribuição por código. Tabular O03.1 e O06.1 em todos os estados e anos, inclusive zeros somente quando houver cobertura completa. Descrever se os perfis históricos persistem, sem selecionar estados ou excluir casos com base nas novas frequências. O denominador continua sendo internações obstétricas elegíveis do SIH; censos não são necessários para essas frequências. Mostrar os anos da pandemia nos gráficos, sem atribuir causalidade a mudanças concomitantes.
+
+### Janelas municipais e indicadores
+
+- Comparação histórica harmonizada: internações de 2008–2012, Censo 2010.
+- Comparação recente principal: internações de 2020–2024, Censo 2022. Ambas são janelas de cinco anos centradas no censo.
+- Sensibilidade temporal recente: internações de 2021–2025, mesmos indicadores de 2022. Não chamar esses indicadores de medições de 2025; as duas janelas recentes se sobrepõem e não são replicações independentes.
+- Não imputar covariáveis censitárias para cada ano, não interpolar uma série anual e não levar o Censo 2010 a 2025. Renda de pesquisas disponíveis somente por UF não será atribuída aos municípios.
+- Renda: média domiciliar mensal per capita, com universos compatíveis, SIDRA 3578 (2010) e 10295 (2022). Descrever valores nominais no ano do censo; qualquer comparação de níveis monetários entre censos exigirá deflação explícita. Correlações separadas por período não exigem converter uma constante monetária comum.
+- Analfabetismo: pessoas de 15 anos ou mais em ambos os censos. Recalcular 2010 a partir de contagens por idade verificadas na fonte, pois o indicador histórico original era de 10 anos ou mais. Preservar a análise original com 10+; não apresentar as duas como idênticas. Para 2022, SIDRA 9543.
+- Esgotamento: porcentagem de domicílios particulares permanentes ocupados com rede geral/pluvial ou fossa séptica; compatibilizar categorias de 2010 (1394) e 2022 (6805), sem somar categorias hierárquicas em duplicidade. Não denominar o indicador tratamento de esgoto.
+- Arquivar respostas e metadados oficiais com URLs, datas, hashes, variáveis, categorias e universos. Os dados de renda de 2022 são resultados preliminares da amostra; registrar essa condição. Não preencher covariáveis ausentes com zero.
+- Conferir o universo municipal, os códigos completos do IBGE e sua correspondência com os seis dígitos do SIH, a UF e os vínculos com microrregiões. Quantificar códigos não correspondidos. Investigar criações, extinções e mudanças territoriais documentadas; não assumir limites idênticos apenas porque o código é igual. Havendo incompatibilidade identificada, não fazer comparação direta daquele município sem harmonização. As associações de cada época não serão interpretadas como efeito longitudinal individual.
+
+### Análise e apresentação
+
+Reutilizar as correlações bivariadas, o bootstrap de microrregiões (2.000 reamostragens, semente 20260919), a centralização por UF e as sensibilidades de pelo menos 1.000 internações e hospitalização na própria UF. As famílias de 90 comparações serão corrigidas separadamente por método, janela, requisito de contagem e local de hospitalização. Comparar direção, magnitude e intervalos; significância em um período e ausência no outro não demonstram diferença entre coeficientes. Não acrescentar regressão multivariável nem interpretar correlações municipais como risco individual ou confirmação clínica de near miss.
+
+Preservar os resultados originais de 2008–2012 e sua reconciliação com os 167 municípios do RN. Separar os novos resultados por janela, validar somas entre diagnósticos, municípios, UFs e região, e conferir anos compartilhados contra a análise histórica. Registrar emenda adicional antes de qualquer mudança material motivada por indisponibilidade de dados ou problemas de comparabilidade.
+
+No artigo, usar o DOCX autoral atualizado como fonte e preservar as revisões do autor. Acrescentar a evolução anual e a composição diagnóstica; manter tabelas municipais, detalhes dos indicadores e sensibilidades no suplemento. Atualizar o relatório de achados e o dashboard com os novos dados agregados, períodos explícitos e explicações acessíveis. Não disponibilizar o manuscrito nem o material suplementar inédito no site. Manter scripts `.py`, reutilizar a rotina existente e atualizar a sequência de execução no README/`run.sh`.
+
+Fontes dos indicadores de 2022: [renda per capita](https://sidra.ibge.gov.br/tabela/10295), [alfabetização](https://sidra.ibge.gov.br/tabela/9543), [esgotamento sanitário](https://sidra.ibge.gov.br/tabela/6805).
+
+### Conferência das fontes antes das novas correlações
+
+A tabela SIDRA 3324 fornece contagens de pessoas de 15 anos ou mais por alfabetização em 2010; será utilizada para harmonizar a faixa etária, verificando também a categoria sem declaração. O IBGE documenta alterações em limites municipais/distritais nordestinos em [2013](https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/14635-asi-mapas-municipais-estatisticos-em-2013-166-limites-municipais-ou-distritais-foram-alterados), [2014](https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/10117-ibge-disponibiliza-mapas-municipais-para-fins-estatisticos-das-estimativas-populacionais-2014) e outros anos. Portanto, os mesmos códigos não definem um painel de áreas invariantes. As associações serão cortes transversais separados, com indicadores do censo próximo e os códigos de residência registrados no SIH; não serão calculadas diferenças longitudinais por município. As séries anuais comparáveis serão agregadas por UF/região. A ausência de geocodificação dos registros impede redistribuir internações entre polígonos históricos; eventuais desencontros de limites dentro das janelas censitárias serão uma limitação explícita, não uma harmonização territorial presumida.

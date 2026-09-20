@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "period": [
+    2008,
+    2025
+  ],
+  "files": 5832,
+  "annual_rows": 180,
+  "municipalities": 1794,
+  "unknown_municipality_admissions": 0,
+  "historical_reconciliation": "Exact at municipality/hospital-state/year/age/diagnosis/death and municipality/care levels",
+  "windows": [
+    {
+      "period": "2008-2012",
+      "census_year": 2010
+    },
+    {
+      "period": "2020-2024",
+      "census_year": 2022
+    },
+    {
+      "period": "2021-2025",
+      "census_year": 2022
+    }
+  ],
+  "correlations": 1080,
+  "families": "90 comparisons per method, window, care and minimum-admission setting",
+  "bootstrap_repetitions": 2000,
+  "bootstrap_seed": 20260919,
+  "observed_utc": "2026-09-20T03:23:17.486865+00:00",
+  "script_sha256": "a2f5a3dc1e4b60f56bb00c47c91e038fcb991a74491256acec67c0b2a6069b92",
+  "protocol_sha256": "711ed4fc77545b62d5f4e664a5e509c4207bca21f5e30348e41b6c3f70f5e3f2",
+  "inputs_sha256": {
+    "diagnoses.csv.gz": "23f100ce0dec654225dc9b5a5acff062666324df14d4b848b6c53af8a1ca8cd3",
+    "covariates_2010.csv": "80c37cbf50d2492e0940f15991c6fe9584a473e8fa1ceb85b25ff4a3bdb51cb5",
+    "covariates_2022.csv": "0d618aa4a4d4eb4fbac54f1dd750418113e5e4a4955d7f3a05bd820d2b5f26be",
+    "extraction.csv": "fbaee8410525b50dc30c62d081bb0dc710c88693dcbf68e2ce71b61322875e27",
+    "deduplication.json": "13babe2603f3d9067f07d8f6b6d5f297d6748f9d63a320a4b530e6cfeef7d8dd",
+    "territory_audit.json": "e31ac8326ea11ab2225a20b83624ea9577df935e56811a9775756c658b7c298a",
+    "covariates/sources.json": "cb9d3889ad7de500cad4f5e7540c4b28f2fb23c8b2cec30ece1f1fe5cee0bbce"
+  }
+}

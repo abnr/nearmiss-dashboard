@@ -17,7 +17,7 @@ function canvas(id, title, description, height = 225) {
   $(id).replaceChildren(svg);
   return svg;
 }
-function lineChart(id, points, title, {color = '#3f6b6c', highlight = null, maximum = null, count = false} = {}) {
+function lineChart(id, points, title, {color = '#3f6b6c', highlight = null, maximum = null, count = false, shadeYears = []} = {}) {
   const digits = count ? 0 : 2, unit = count ? 'internações com sinais' : 'por 1.000 internações';
   const description = `${unit}. ` + points.map(p => `${p.label}: ${p.value == null ? 'sem ano completo' : number(p.value, digits)}`).join('; ');
   const svg = canvas(id, title, description);
@@ -25,6 +25,10 @@ function lineChart(id, points, title, {color = '#3f6b6c', highlight = null, maxi
   const max = (maximum ?? Math.max(1, ...points.map(p => p.value || 0))) * 1.12;
   const x = i => left + i * (right - left) / Math.max(1, points.length - 1);
   const y = v => bottom - v / max * (bottom - top);
+  for (const year of shadeYears) {
+    const i = points.findIndex(p => Number(p.label) === year);
+    if (i >= 0) svg.append(node('rect', {x: x(i-.5), y: top, width: (right-left)/Math.max(1,points.length-1), height: bottom-top, fill: '#eeeeee'}));
+  }
   for (let i = 0; i <= 4; i++) {
     const v = max * i / 4;
     svg.append(node('line', {x1: left, x2: right, y1: y(v), y2: y(v), class: 'axis'}), node('text', {x: left - 8, y: y(v) + 4, 'text-anchor': 'end'}, number(v, count ? 0 : 1)));
@@ -37,7 +41,7 @@ function lineChart(id, points, title, {color = '#3f6b6c', highlight = null, maxi
   });
   svg.append(node('path', {d: path, fill: 'none', stroke: color, 'stroke-width': 2.5}));
   points.forEach((p, i) => {
-    if (points.length <= 8 || i % 4 === 0 || i === points.length - 1) svg.append(node('text', {x: x(i), y: 214, 'text-anchor': 'middle'}, p.label));
+    if (points.length <= 8 || (i % 4 === 0 && i < points.length-2) || i === points.length - 1) svg.append(node('text', {x: x(i), y: 214, 'text-anchor': 'middle'}, p.label));
     if (p.value != null) {
       const circle = node('circle', {cx: x(i), cy: y(p.value), r: String(p.key) === String(highlight) ? 5 : 2.8, fill: color});
       circle.append(node('title', {}, `${p.label}: ${number(p.value, digits)} ${unit}`));svg.append(circle);
@@ -135,51 +139,73 @@ start();
 
 const stateNames = {AL:'Alagoas', BA:'Bahia', CE:'Ceará', MA:'Maranhão', PB:'Paraíba', PE:'Pernambuco', PI:'Piauí', RN:'Rio Grande do Norte', SE:'Sergipe', NE:'Nordeste'};
 const outcomeNames = {W:'Todos os sinais da lista de Rosendo', hypertension:'Sinais relacionados à hipertensão', hemorrhage:'Sinais relacionados a hemorragias'};
-let northeast, selectedState = 'NE';
-const mapColor = value => '#' + [233,241,241].map((v,i) => Math.round(v + ([23,72,74][i]-v)*value/80).toString(16).padStart(2,'0')).join('');
+let northeast, northeastAnnual, northeastWindows, neMaximum, selectedState = 'NE';
+const periodLabel = () => $('ne-period').value.replace('-', '–');
+const mapColor = value => '#' + [233,241,241].map((v,i) => Math.round(v + ([23,72,74][i]-v)*value/neMaximum).toString(16).padStart(2,'0')).join('');
 function northeastReading() {
   const row = northeast.find(r => r.territory === selectedState), outcome = $('ne-outcome').value;
-  $('ne-reading').textContent = `${stateNames[selectedState]}: ${number(row[outcome])} internações com ${outcome === 'W' ? 'sinais da lista' : outcome === 'hypertension' ? 'sinais relacionados à hipertensão' : 'sinais relacionados a hemorragias'} entre ${number(row.admissions)} analisadas — ${number(row[outcome+'_per_1000'],2)} por 1.000.`;
+  $('ne-reading').textContent = `${stateNames[selectedState]} · ${periodLabel()}: ${number(row[outcome])} internações com ${outcome === 'W' ? 'sinais da lista' : outcome === 'hypertension' ? 'sinais relacionados à hipertensão' : 'sinais relacionados a hemorragias'} entre ${number(row.admissions)} analisadas — ${number(row[outcome+'_per_1000'],2)} por 1.000.`;
   for (const link of $('ne-map').querySelectorAll('a')) link.classList.toggle('selected', link.dataset.uf === selectedState);
 }
 function renderNortheast() {
-  const outcome = $('ne-outcome').value, field = outcome+'_per_1000';
+  const period = $('ne-period').value, outcome = $('ne-outcome').value, field = outcome+'_per_1000';
+  northeast = period.includes('-') ? northeastWindows.filter(r=>r.period===period) : northeastAnnual.filter(r=>r.year===Number(period));
   const ordered = northeast.filter(r => r.territory !== 'NE').sort((a,b) => b[field]-a[field]);
-  $('ne-compare-note').textContent = `${outcomeNames[outcome]} · por 1.000 internações · 2008–2012.`;
-  $('ne-bars-reading').textContent = `${stateNames[ordered[0].territory]} e ${stateNames[ordered[1].territory]} apresentam as maiores frequências neste grupo. Nordeste: ${number(northeast.find(r=>r.territory==='NE')[field],2)} por 1.000.`;
-  const rows = [...ordered, northeast.find(r=>r.territory==='NE')];
-  document.querySelector('.ne-bars').innerHTML = rows.map(r=>`<li data-territory="${r.territory}"${r.territory==='NE'?' class="ne-total"':''}><span>${stateNames[r.territory]}</span><span class="ne-track" aria-hidden="true"><span style="width:${r[field]/80*100}%"></span></span><strong>${number(r[field],2)}</strong></li>`).join('');
-  $('ne-map-description').textContent = `${outcomeNames[outcome]}, por 1.000 internações em 2008–2012. ` + ordered.map(r=>`${stateNames[r.territory]}: ${number(r[field],2)}`).join('; ');
+  const regional = northeast.find(r=>r.territory==='NE');
+  $('ne-compare-note').textContent = `${outcomeNames[outcome]} · por 1.000 internações · ${periodLabel()}.`;
+  $('ne-bars-reading').textContent = `${stateNames[ordered[0].territory]} e ${stateNames[ordered[1].territory]} apresentam as maiores frequências neste grupo e período. Nordeste: ${number(regional[field],2)} por 1.000.`;
+  const rows = [...ordered, regional];
+  document.querySelector('.ne-bars').innerHTML = rows.map(r=>`<li data-territory="${r.territory}"${r.territory==='NE'?' class="ne-total"':''}><span>${stateNames[r.territory]}</span><span class="ne-track" aria-hidden="true"><span style="width:${r[field]/neMaximum*100}%"></span></span><strong>${number(r[field],2)}</strong></li>`).join('');
+  $('ne-map-description').textContent = `${outcomeNames[outcome]}, por 1.000 internações em ${periodLabel()}. ` + ordered.map(r=>`${stateNames[r.territory]}: ${number(r[field],2)}`).join('; ');
   for (const link of $('ne-map').querySelectorAll('a')) {
     const row = northeast.find(r => r.territory === link.dataset.uf);
-    const description = `${stateNames[row.territory]}: ${number(row[field],2)} por 1.000. Ver contagens.`;
+    const description = `${stateNames[row.territory]} · ${periodLabel()}: ${number(row[field],2)} por 1.000. Ver contagens.`;
     link.querySelector('use').setAttribute('fill',mapColor(row[field]));
     link.querySelector('title').textContent = description;link.setAttribute('aria-label',description);
   }
+  document.querySelector('.map-legend').setAttribute('aria-label',`Escala fixa de zero a ${neMaximum} por 1.000 em todos os anos e grupos`);
+  document.querySelector('.map-legend div').innerHTML = `<span>0</span><span>${number(neMaximum/2)}</span><span>${number(neMaximum)} por 1.000</span>`;
+  document.querySelector('.ne-axis').innerHTML = `<span>0</span><span>${number(neMaximum/2)}</span><span>${number(neMaximum)}</span>`;
+  const parts = [{key:'hypertension',name:'Hipertensão e complicações relacionadas'},{key:'hemorrhage',name:'Hemorragias'},{key:'other',name:'Outras condições da lista'}];
+  const composition = Object.keys(stateNames).sort((a,b)=>a==='NE'?-1:b==='NE'?1:stateNames[a].localeCompare(stateNames[b],'pt-BR')).map(uf=>{
+    const row=northeast.find(r=>r.territory===uf);
+    return {...row,other:row.W-row.hypertension-row.hemorrhage};
+  });
+  $('ne-composition-reading').textContent = `Em ${periodLabel()}, ${number(100*regional.hypertension/regional.W,1)}% das internações identificadas no Nordeste estavam no grupo de hipertensão e ${number(100*regional.hemorrhage/regional.W,1)}% no de hemorragias. Veja como essa composição varia entre os estados.`;
+  $('ne-composition').innerHTML = composition.map(r=>{
+    const percentages=parts.map(p=>({...p,value:100*r[p.key]/r.W}));
+    const label=stateNames[r.territory]+': '+percentages.map(p=>`${p.name}, ${number(p.value,1)}%`).join('; ');
+    return `<li data-territory="${r.territory}"${r.territory==='NE'?' class="ne-total"':''}><span><abbr title="${stateNames[r.territory]}">${r.territory==='NE'?'Nordeste':r.territory}</abbr></span><div class="composition-track" role="img" aria-label="${label}">${percentages.map(p=>`<span class="${p.key}" style="width:${p.value}%" title="${p.name}: ${number(p.value,1)}%">${p.value>=20?number(p.value,1)+'%':''}</span>`).join('')}</div></li>`;
+  }).join('');
+  table('ne-composition-table',['Território','Com sinais (n)','Hipertensão (%)','Hemorragias (%)','Outras (%)'],composition.map(r=>[stateNames[r.territory],number(r.W),...parts.map(p=>number(100*r[p.key]/r.W,1))]),`Percentuais entre internações com sinais da lista de Rosendo, ${periodLabel()}. Os grupos somam 100% antes do arredondamento.`);
+  table('ne-table-wrap',['Território','Internações','Com sinais (n)','Geral / 1.000','Hipertensivas / 1.000','Hemorrágicas / 1.000'],composition.map(r=>[stateNames[r.territory],number(r.admissions),number(r.W),...['W','hypertension','hemorrhage'].map(k=>number(r[k+'_per_1000'],2))]),`${periodLabel()} · residentes de 15–49 anos · internação em qualquer UF. Frequências brutas por 1.000 internações.`);
+  $('ne-table-wrap').querySelector('table').id='ne-table';
+  $('ne-time-reading').textContent = `${outcomeNames[outcome]}. Todos os gráficos usam a mesma escala e mostram 2008–2025; o período do mapa não corta as curvas. A faixa cinza marca 2020–2021, sem estimar um efeito da pandemia.`;
+  for (const state of Object.keys(stateNames)) {
+    const points=northeastAnnual.filter(r=>r.territory===state).sort((a,b)=>a.year-b.year).map(r=>({label:r.year,key:r.year,value:r[field]}));
+    lineChart('ne-trend-'+state,points,stateNames[state]+' · '+outcomeNames[outcome],{maximum:neMaximum,highlight:period,color:state==='NE'?'#b8621d':'#3f6b6c',shadeYears:[2020,2021]});
+  }
+  table('ne-annual-table',['Ano','Internações','Com sinais (n)','Geral / 1.000','Hipertensivas / 1.000','Hemorrágicas / 1.000'],northeastAnnual.filter(r=>r.territory==='NE').map(r=>[r.year,number(r.admissions),number(r.W),...['W','hypertension','hemorrhage'].map(k=>number(r[k+'_per_1000'],2))]),'Nordeste por ano, lista de Rosendo. A tabela contém as três frequências, independentemente do filtro.');
   northeastReading();
 }
 async function startNortheast() {
   try {
-    const response = await fetch('downloads/rosendo_ne/state_summary.csv');
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    // Este resumo tem somente códigos e números, sem campos que contenham vírgulas.
-    const lines = (await response.text()).trim().split(/\r?\n/), headers = lines.shift().split(',');
-    northeast = lines.map(line=>Object.fromEntries(line.split(',').map((v,i)=>[headers[i],['care','territory'].includes(headers[i])?v:Number(v)]))).filter(r=>r.care==='any_uf');
-    // Escala comum de 0–80 para os três grupos deste recorte; novos dados exigem revisar a escala.
-    if (northeast.length!==10 || new Set(northeast.map(r=>r.territory)).size!==10 || northeast.some(r=>!stateNames[r.territory] || !(r.admissions>0) || r.hypertension+r.hemorrhage>r.W || ['W','hypertension','hemorrhage'].some(k=>!Number.isFinite(r[k]) || r[k]<0 || !(r[k+'_per_1000']>=0 && r[k+'_per_1000']<=80) || Math.abs(r[k+'_per_1000']-1000*r[k]/r.admissions)>1e-8))) throw new Error('Resumo do Nordeste inválido ou fora da escala');
-    $('ne-outcome').disabled = false;$('ne-outcome').addEventListener('change',renderNortheast);
+    const csv = async path => {
+      const response=await fetch(path);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      // Resumos contêm somente números e códigos, sem campos com vírgulas.
+      const lines=(await response.text()).trim().split(/\r?\n/), headers=lines.shift().split(',');
+      return lines.map(line=>Object.fromEntries(line.split(',').map((v,i)=>[headers[i],['care','territory','period'].includes(headers[i])?v:Number(v)])));
+    };
+    [northeastAnnual,northeastWindows]=await Promise.all([csv('downloads/rosendo_ne/extension/annual.csv'),csv('downloads/rosendo_ne/extension/window_state_summary.csv')]);
+    northeastWindows=northeastWindows.filter(r=>r.care==='any_uf');
+    const all=[...northeastAnnual,...northeastWindows];
+    if (northeastAnnual.length!==180 || northeastWindows.length!==30 || all.some(r=>!stateNames[r.territory] || !(r.admissions>0) || !(r.W>0) || r.hypertension+r.hemorrhage>r.W || ['W','hypertension','hemorrhage'].some(k=>!Number.isFinite(r[k]) || r[k]<0 || r[k]>r.admissions || !Number.isFinite(r[k+'_per_1000']) || Math.abs(r[k+'_per_1000']-1000*r[k]/r.admissions)>1e-8))) throw new Error('Resumo do Nordeste inválido');
+    for (let year=2008;year<=2025;year++) if (new Set(northeastAnnual.filter(r=>r.year===year).map(r=>r.territory)).size!==10) throw new Error('Ano incompleto no Nordeste');
+    for (const period of ['2008-2012','2020-2024','2021-2025']) if (new Set(northeastWindows.filter(r=>r.period===period).map(r=>r.territory)).size!==10) throw new Error('Janela incompleta no Nordeste');
+    neMaximum=Math.ceil(Math.max(...all.map(r=>r.W_per_1000))/20)*20;
+    for (const id of ['ne-outcome','ne-period']) {$(id).disabled=false;$(id).addEventListener('change',renderNortheast);}
     for (const link of $('ne-map').querySelectorAll('a')) link.addEventListener('click',event=>{event.preventDefault();selectedState=link.dataset.uf;northeastReading();});
-    const parts = [{key:'hypertension',name:'Hipertensão e complicações relacionadas'},{key:'hemorrhage',name:'Hemorragias'},{key:'other',name:'Outras condições da lista'}];
-    const composition = Object.keys(stateNames).sort((a,b)=>a==='NE'?-1:b==='NE'?1:stateNames[a].localeCompare(stateNames[b],'pt-BR')).map(uf=>{
-      const row=northeast.find(r=>r.territory===uf);
-      return {...row,other:row.W-row.hypertension-row.hemorrhage};
-    });
-    $('ne-composition').innerHTML = composition.map(r=>{
-      const percentages=parts.map(p=>({...p,value:100*r[p.key]/r.W}));
-      const label=stateNames[r.territory]+': '+percentages.map(p=>`${p.name}, ${number(p.value,1)}%`).join('; ');
-      return `<li data-territory="${r.territory}"${r.territory==='NE'?' class="ne-total"':''}><span><abbr title="${stateNames[r.territory]}">${r.territory==='NE'?'Nordeste':r.territory}</abbr></span><div class="composition-track" role="img" aria-label="${label}">${percentages.map(p=>`<span class="${p.key}" style="width:${p.value}%" title="${p.name}: ${number(p.value,1)}%">${p.value>=20?number(p.value,1)+'%':''}</span>`).join('')}</div></li>`;
-    }).join('');
-    table('ne-composition-table',['Território','Com sinais (n)','Hipertensão (%)','Hemorragias (%)','Outras (%)'],composition.map(r=>[stateNames[r.territory],number(r.W),...parts.map(p=>number(100*r[p.key]/r.W,1))]),'Percentuais entre internações com sinais da lista de Rosendo, 2008–2012. Os três grupos somam 100% antes do arredondamento.');
     renderNortheast();
   } catch(error) {
     $('ne-compare-note').textContent='A comparação interativa não carregou. A tabela abaixo e os arquivos para download continuam disponíveis.';
